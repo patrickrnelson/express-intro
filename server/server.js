@@ -8,6 +8,7 @@ const app = express();
 const port = 3000;
 
 // Share any files inside the "public" folder
+// these are the client side items
 app.use(express.static('server/public'));
 
 // Listen for network requests
