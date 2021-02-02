@@ -5,9 +5,14 @@ const express = require('express'); // since there is no './' it will look for e
 // Create our application
 const app = express();
 
+const port = 3000;
+
+// Share any files inside the "public" folder
+app.use(express.static('server/public'));
+
 // Listen for network requests
-app.listen(3000, function () {
+app.listen(port, function () {
   // can be any number. Should be 3000 or 5000 for ease
   // When the server is ready, call this function
-  console.log('I am listening.....', 3000);
+  console.log('I am listening.....', port);
 });
