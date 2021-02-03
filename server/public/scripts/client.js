@@ -18,17 +18,21 @@ function onReady() {
   $.ajax(ajaxOptions)
     // promise to call me back later
     .then(function (response) {
-      console.log('got a response', response);
+      console.log('got a response', response); // response == res.send from server.js
+      // Take array of quotes (quoteList)
+      // loop through em
+      for (let quote of response) {
+        $('#listOfQuotes').append(
+          `<li>
+            <blockquote>${quote.quote} -${quote.author}</blockquote>
+          </li>`
+        );
+      }
+      // .append() to the DOM
+    })
+
+    // this will 'catch' server errors and do something
+    .catch(function () {
+      alert('Sorry! Contact your webmaster');
     });
-
-  // response == res.send from server.js
-
-  console.log('so much to do... so little time');
-  console.log('....');
-  console.log('so much to do... so little time');
-  console.log('....');
-
-  // Take array of quotes
-  // loop through em
-  // .append() to the DOM
 }
